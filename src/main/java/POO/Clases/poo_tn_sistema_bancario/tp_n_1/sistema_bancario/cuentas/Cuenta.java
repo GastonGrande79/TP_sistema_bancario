@@ -1,4 +1,4 @@
-package POO.Clases.poo_tn_sistema_bancario.tp_n_1.sistema_bancario;
+package POO.Clases.poo_tn_sistema_bancario.tp_n_1.sistema_bancario.cuentas;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

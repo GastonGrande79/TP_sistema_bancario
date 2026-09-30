@@ -1,14 +1,14 @@
 package POO.Clases.poo_tn_sistema_bancario.tp_n_1.test;
 
-import POO.Clases.poo_tn_sistema_bancario.tp_n_1.sistema_bancario.CajaAhorro;
-import POO.Clases.poo_tn_sistema_bancario.tp_n_1.sistema_bancario.ClienteIndividual;
+import POO.Clases.poo_tn_sistema_bancario.tp_n_1.sistema_bancario.clientes.ClienteIndividual;
+import POO.Clases.poo_tn_sistema_bancario.tp_n_1.sistema_bancario.cuentas.CajaAhorro;
 
 public class TestCajaAhorro {
 public static void main(String[] args) {
     ClienteIndividual cliente1 = new ClienteIndividual( 1, "Roberto", "Sanchez", "90345678");
         
           
-        System.out.println("Cliente: " + cliente1.getId() + " - " + cliente1.getNombre() + " " +cliente1.getApellido() + " (DNI: " +cliente1.getDni() + ")");
+        System.out.println("Cliente: " + cliente1.getNumeroCliente() + " - " + cliente1.getNombre() + " " +cliente1.getApellido() + " (DNI: " +cliente1.getDni() + ")");
                                  
                    
         CajaAhorro caja1 = new CajaAhorro(10, 15000.0, 12.0);

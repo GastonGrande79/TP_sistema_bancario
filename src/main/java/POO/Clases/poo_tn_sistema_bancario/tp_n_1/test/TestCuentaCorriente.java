@@ -1,7 +1,7 @@
 package POO.Clases.poo_tn_sistema_bancario.tp_n_1.test;
 
-import POO.Clases.poo_tn_sistema_bancario.tp_n_1.sistema_bancario.ClienteEmpresa;
-import POO.Clases.poo_tn_sistema_bancario.tp_n_1.sistema_bancario.CuentaCorriente;
+import POO.Clases.poo_tn_sistema_bancario.tp_n_1.sistema_bancario.clientes.ClienteEmpresa;
+import POO.Clases.poo_tn_sistema_bancario.tp_n_1.sistema_bancario.cuentas.CuentaCorriente;
 
 public class TestCuentaCorriente {
     public static void main(String[] args) {

@@ -1,4 +1,4 @@
-package POO.Clases.poo_tn_sistema_bancario.tp_n_1.sistema_bancario;
+package POO.Clases.poo_tn_sistema_bancario.tp_n_1.sistema_bancario.clientes;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -13,8 +13,8 @@ public class ClienteIndividual extends Cliente{
     private String apellido;
     private String dni;
 
-    public ClienteIndividual(int id, String nombre, String apellido, String dni) {
-    super(id);
+    public ClienteIndividual(int numeroCliente, String nombre, String apellido, String dni) {
+    super(numeroCliente);
     this.nombre = nombre;
     this.apellido = apellido;
     this.dni = dni;

@@ -1,4 +1,4 @@
-package POO.Clases.poo_tn_sistema_bancario.tp_n_1.sistema_bancario;
+package POO.Clases.poo_tn_sistema_bancario.tp_n_1.sistema_bancario.cuentas;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -17,7 +17,10 @@ public class CuentaCorriente extends Cuenta  {
 
  @Override
  public void depositarEfectivo(double monto) {
-  setSaldo(getSaldo() + monto);
+    if (monto <= 0) {
+        System.out.println("El monto a depositar debe ser mayor a cero.");
+        return;}
+    setSaldo(getSaldo() + monto);
  }
 
  @Override

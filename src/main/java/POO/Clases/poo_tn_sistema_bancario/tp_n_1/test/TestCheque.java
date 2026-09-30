@@ -1,7 +1,8 @@
 package POO.Clases.poo_tn_sistema_bancario.tp_n_1.test;
 
 import java.time.LocalDate;
-import POO.Clases.poo_tn_sistema_bancario.tp_n_1.sistema_bancario.Cheque;
+
+import POO.Clases.poo_tn_sistema_bancario.tp_n_1.sistema_bancario.cuentas.Cheque;
 
 public class TestCheque {
     public static void main(String[] args) {
@@ -13,12 +14,10 @@ public class TestCheque {
         miCheque.setMonto(152500.75);
         miCheque.setBancoEmisor("Banco Nacion");
         
-        // Asignar fecha usando LocalDate (Año, Mes, Día)
         miCheque.setFechaPago(LocalDate.of(2026, 10, 15));
         
         System.out.println(miCheque);
         
-        // Validar si el cheque ya se puede cobrar 
         if (miCheque.getFechaPago().isBefore(LocalDate.now()) || miCheque.getFechaPago().isEqual(LocalDate.now())) {
             System.out.println("El cheque está listo para el cobro.");
         } else {

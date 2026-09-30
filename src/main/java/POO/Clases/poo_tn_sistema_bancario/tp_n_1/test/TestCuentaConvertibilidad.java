@@ -1,8 +1,8 @@
 package POO.Clases.poo_tn_sistema_bancario.tp_n_1.test;
 
-import POO.Clases.poo_tn_sistema_bancario.tp_n_1.sistema_bancario.Cliente;
-import POO.Clases.poo_tn_sistema_bancario.tp_n_1.sistema_bancario.ClienteEmpresa;
-import POO.Clases.poo_tn_sistema_bancario.tp_n_1.sistema_bancario.CuentaConvertibilidad;
+import POO.Clases.poo_tn_sistema_bancario.tp_n_1.sistema_bancario.clientes.Cliente;
+import POO.Clases.poo_tn_sistema_bancario.tp_n_1.sistema_bancario.clientes.ClienteEmpresa;
+import POO.Clases.poo_tn_sistema_bancario.tp_n_1.sistema_bancario.cuentas.CuentaConvertibilidad;
 
 
 public class TestCuentaConvertibilidad {

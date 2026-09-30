@@ -1,5 +1,7 @@
-package POO.Clases.poo_tn_sistema_bancario.tp_n_1.sistema_bancario;
+package POO.Clases.poo_tn_sistema_bancario.tp_n_1.sistema_bancario.cuentas;
 
+import POO.Clases.poo_tn_sistema_bancario.tp_n_1.sistema_bancario.clientes.Cliente;
+import POO.Clases.poo_tn_sistema_bancario.tp_n_1.sistema_bancario.clientes.ClienteEmpresa;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
