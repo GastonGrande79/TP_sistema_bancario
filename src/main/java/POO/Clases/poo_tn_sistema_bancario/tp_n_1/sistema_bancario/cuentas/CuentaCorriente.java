@@ -1,39 +1,55 @@
-package POO.Clases.poo_tn_sistema_bancario.tp_n_1.sistema_bancario.cuentas;
+package poo.clases.poo_tn_sistema_bancario.tp_n_1.sistema_bancario.cuentas;
 
 import lombok.Getter;
-import lombok.Setter;
 import lombok.ToString;
 
 @Getter 
-@Setter 
 @ToString (callSuper = true)
-public class CuentaCorriente extends Cuenta  {
+public class CuentaCorriente extends Cuenta {
     private double descubiertoAutorizado;
 
- public CuentaCorriente(int numeroCuenta, double saldo, double descubiertoAutorizado) {
-  super(numeroCuenta, saldo);
-  this.descubiertoAutorizado = descubiertoAutorizado;
- }
+    public CuentaCorriente(int numeroCuenta, int clienteAsociado, double saldo, double descubiertoAutorizado) {
+        super(numeroCuenta, clienteAsociado, saldo);
+        this.descubiertoAutorizado = descubiertoAutorizado;
+    }
 
- @Override
- public void depositarEfectivo(double monto) {
-    if (monto <= 0) {
-        System.out.println("El monto a depositar debe ser mayor a cero.");
-        return;}
-    setSaldo(getSaldo() + monto);
- }
+    @Override
+    public void depositarEfectivo(double monto) {
+        if (monto <= 0) {
+            System.out.println("El monto a depositar debe ser mayor a cero.");
+            return;
+        }
+        // Usamos el método protegido heredado
+        actualizarSaldo(getSaldo() + monto);
+    }
 
- @Override
- public void extraerEfectivo(double monto) {
-  if (getSaldo() + descubiertoAutorizado >= monto) {
-   setSaldo(getSaldo() - monto);
-  } else {
-   System.out.println("No se puede realizar la operacion. Saldo insuficiente.");
-  }
- }
+    @Override
+    public void extraerEfectivo(double monto) {
+        if (monto <= 0) {
+            System.out.println("El monto a extraer debe ser mayor a cero.");
+            return;
+        }
+        if (getSaldo() + descubiertoAutorizado >= monto) {
+            actualizarSaldo(getSaldo() - monto);
+        } else {
+            System.out.println("No se puede realizar la operacion. Saldo insuficiente.");
+        }
+    }
 
- public void depositarCheque(Cheque cheque) {
-  setSaldo(getSaldo() + cheque.getMonto());
- }
+    public void depositarCheque(Cheque cheque) {
+    if (cheque == null) {
+        System.out.println("Error: El cheque no puede ser nulo.");
+        return;
+    }
+
+    // 🌟 Aprovechamos la validación que escribiste en la clase Cheque
+    if (cheque.esValido()) {
+        depositarEfectivo(cheque.getMonto());
+        System.out.println("Depósito exitoso: Se acreditaron $" + cheque.getMonto() + " del banco " + cheque.getBancoEmisor());
+    } else {
+        System.out.println("Depósito rechazado: El cheque no es válido para su cobro.");
+    }
+    }
 
 }
+

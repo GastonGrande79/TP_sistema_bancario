@@ -1,55 +1,51 @@
-package POO.Clases.poo_tn_sistema_bancario.tp_n_1.sistema_bancario.cuentas;
+package poo.clases.poo_tn_sistema_bancario.tp_n_1.sistema_bancario.cuentas;
 
-import POO.Clases.poo_tn_sistema_bancario.tp_n_1.sistema_bancario.clientes.Cliente;
-import POO.Clases.poo_tn_sistema_bancario.tp_n_1.sistema_bancario.clientes.ClienteEmpresa;
 import lombok.Getter;
-import lombok.Setter;
 import lombok.ToString;
 
-@Getter 
-@Setter 
-@ToString 
+@Getter
+@ToString(callSuper = true)
 public class CuentaConvertibilidad extends CuentaCorriente {
     private double saldoDolares;
-    private ClienteEmpresa clienteEmpresa;
 
-    public double getSaldoDolares() {
-        return saldoDolares;
-    }
-
-    public CuentaConvertibilidad(int numeroCuenta, Cliente cliente, double saldo, double descubiertoAutorizado, double saldoDolares) {
-           
-        super(numeroCuenta, saldo, descubiertoAutorizado);
+    public CuentaConvertibilidad(int numeroCuenta, int clienteAsociado, double saldo, double descubiertoAutorizado, double saldoDolares) {
+        super(numeroCuenta, clienteAsociado, saldo, descubiertoAutorizado);
         this.saldoDolares = saldoDolares;
     }
-  
+
     public void depositarDolares(double monto) {
+        if (monto <= 0) return;
         this.saldoDolares += monto;
     }
-   
+
     public void extraerDolares(double monto) {
-        this.saldoDolares -= monto;
-    }
-
-    public void convertirPesoADolares(double monto , double tasaCambio) {
-        if (monto <= getSaldo()) {
-            double montoDolares = monto * tasaCambio;
-            extraerDolares(monto);
-            depositarDolares(montoDolares);
+        if (monto <= 0) return;
+        if (this.saldoDolares >= monto) {
+            this.saldoDolares -= monto;
         } else {
-            System.out.println("Saldo insuficiente en pesos para su conversion a dolares.");
+            System.out.println("Error: Saldo en dólares insuficiente.");
         }
     }
 
-        public void convertirDolaresAPesos(double monto , double tasaCambio) {
-        if (monto <= getSaldoDolares()) {
-            double montoPesos = monto * tasaCambio;
-            extraerDolares(monto);
-            depositarEfectivo(montoPesos);
+    public void convertirPesosADolares(double montoPesos, double tasaCambio) {
+        if (montoPesos <= 0 || tasaCambio <= 0) return;
+        
+        if (getSaldo() + getDescubiertoAutorizado() >= montoPesos) {
+            extraerEfectivo(montoPesos); // Reutiliza lógica y validación de extracción
+            this.saldoDolares += (montoPesos / tasaCambio); 
         } else {
-            System.out.println(" Saldo insuficiente en dólares para su conversion a pesos.");
+            System.out.println("Error: Saldo insuficiente para la conversión.");
         }
     }
 
+    public void convertirDolaresAPesos(double montoDolares, double tasaCambio) {
+        if (montoDolares <= 0 || tasaCambio <= 0) return;
 
+        if (this.saldoDolares >= montoDolares) {
+            this.saldoDolares -= montoDolares; 
+            depositarEfectivo(montoDolares * tasaCambio); // 🌟 Reutiliza la lógica heredada de depósito
+        } else {
+            System.out.println("Error: Dólares insuficientes para la conversión.");
+        }
+    }
 }

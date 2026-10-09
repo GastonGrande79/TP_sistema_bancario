@@ -1,45 +1,40 @@
-package POO.Clases.poo_tn_sistema_bancario.tp_n_1.sistema_bancario.cuentas;
-
+package poo.clases.poo_tn_sistema_bancario.tp_n_1.sistema_bancario.cuentas;
 
 import lombok.Getter;
-import lombok.Setter;
 import lombok.ToString;
 
 @Getter 
-@Setter 
-@ToString (callSuper = true)
-
+@ToString(callSuper = true)
 public class CajaAhorro extends Cuenta {
     private double tasaInteres;
 
- public CajaAhorro(int numeroCuenta,  double saldo, double tasaInteres) {
-  super(numeroCuenta, saldo);
-  this.tasaInteres = tasaInteres;
- }
-
- @Override
- public void depositarEfectivo(double monto) {
-    if (monto > 0) {
-    setSaldo(getSaldo() + monto);
-    } else{
-        System.out.println("El monto a depositar de ser mayor a cero. ");
+    public CajaAhorro(int numeroCuenta, int clienteAsociado, double saldo, double tasaInteres) {
+        super(numeroCuenta, clienteAsociado, saldo);
+        this.tasaInteres = tasaInteres;
     }
-  
- }
 
- @Override
- public void extraerEfectivo(double monto) {
-  if (monto <= getSaldo()) {
-   setSaldo(getSaldo() - monto);
-  } else {
-   System.out.println("Saldo insuficiente");
-  }
- }
+    @Override
+    public void depositarEfectivo(double monto) {
+        if (monto > 0) {
+            actualizarSaldo(getSaldo() + monto);
+        } else {
+            System.out.println("El monto a depositar debe ser mayor a cero.");
+        }
+    }
 
- public void cobrarInteres() {
-  double interes = getSaldo() * (tasaInteres / 100);
-  setSaldo(getSaldo() + interes);
- }
+    @Override
+    public void extraerEfectivo(double monto) {
+        if (monto > 0 && monto <= getSaldo()) {
+            actualizarSaldo(getSaldo() - monto);
+        } else if (monto <= 0) {
+            System.out.println("El monto a extraer debe ser mayor a cero.");
+        } else {
+            System.out.println("Saldo insuficiente.");
+        }
+    }
 
-
+    public void cobrarInteres() {
+        double interes = getSaldo() * (tasaInteres / 100);
+        actualizarSaldo(getSaldo() + interes);
+    }
 }

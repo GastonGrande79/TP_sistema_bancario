@@ -1,4 +1,4 @@
-package POO.Clases.poo_tn_sistema_bancario.tp_n_1;
+package poo.clases.poo_tn_sistema_bancario.tp_n_1;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

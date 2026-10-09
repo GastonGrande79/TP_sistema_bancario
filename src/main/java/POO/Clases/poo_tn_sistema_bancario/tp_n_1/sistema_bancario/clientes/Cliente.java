@@ -1,12 +1,10 @@
-package POO.Clases.poo_tn_sistema_bancario.tp_n_1.sistema_bancario.clientes;
+package poo.clases.poo_tn_sistema_bancario.tp_n_1.sistema_bancario.clientes;
 
 
 import lombok.Getter;
-import lombok.Setter;
 import lombok.ToString;
 
-@Getter 
-@Setter 
+@Getter  
 @ToString 
 
 public abstract class Cliente {
@@ -15,8 +13,6 @@ public abstract class Cliente {
     public Cliente(int numeroCliente) {
         this.numeroCliente = numeroCliente;
     }
-
-    public int getNumeroCliente() { return numeroCliente; }
     
 }
     
