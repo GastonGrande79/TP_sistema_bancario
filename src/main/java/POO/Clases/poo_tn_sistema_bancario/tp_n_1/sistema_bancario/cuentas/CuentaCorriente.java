@@ -38,11 +38,11 @@ public class CuentaCorriente extends Cuenta {
 
     public void depositarCheque(Cheque cheque) {
     if (cheque == null) {
-        System.out.println("Error: El cheque no puede ser nulo.");
+        System.out.println("El cheque no puede ser nulo.");
         return;
     }
 
-    // 🌟 Aprovechamos la validación que escribiste en la clase Cheque
+    // Aprovechamos la validación que de la clase Cheque
     if (cheque.esValido()) {
         depositarEfectivo(cheque.getMonto());
         System.out.println("Depósito exitoso: Se acreditaron $" + cheque.getMonto() + " del banco " + cheque.getBancoEmisor());

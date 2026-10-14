@@ -9,8 +9,8 @@ public class TestCajaAhorro {
         
         System.out.println("Cliente: " + cliente1.getNumeroCliente() + " - " + cliente1.getNombre() + " " + cliente1.getApellido() + " (DNI: " + cliente1.getDni() + ")");
                                  
-        // CORRECCIÓN: Se agregaron los 4 parámetros requeridos por el constructor
-        // Parámetros: numeroCuenta (10), clienteAsociado (cliente1.getNumeroCliente()), saldo inicial (15000.0), tasaInteres (12.0)
+        // Se agregaron los 4 parámetros requeridos por el constructor
+        // numeroCuenta (10), clienteAsociado (cliente1.getNumeroCliente()), saldo inicial (15000.0), tasaInteres (12.0)
         CajaAhorro caja1 = new CajaAhorro(10, cliente1.getNumeroCliente(), 15000.0, 12.0);
         
         System.out.println("Saldo inicial: $" + caja1.getSaldo());

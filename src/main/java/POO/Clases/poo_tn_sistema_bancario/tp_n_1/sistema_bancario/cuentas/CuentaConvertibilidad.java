@@ -1,5 +1,6 @@
 package poo.clases.poo_tn_sistema_bancario.tp_n_1.sistema_bancario.cuentas;
 
+import poo.clases.poo_tn_sistema_bancario.tp_n_1.sistema_bancario.clientes.ClienteEmpresa;
 import lombok.Getter;
 import lombok.ToString;
 
@@ -8,22 +9,26 @@ import lombok.ToString;
 public class CuentaConvertibilidad extends CuentaCorriente {
     private double saldoDolares;
 
-    public CuentaConvertibilidad(int numeroCuenta, int clienteAsociado, double saldo, double descubiertoAutorizado, double saldoDolares) {
-        super(numeroCuenta, clienteAsociado, saldo, descubiertoAutorizado);
+    // Forzamos desde el parámetro que el cliente sea únicamente un ClienteEmpresa
+    public CuentaConvertibilidad(int numeroCuenta, ClienteEmpresa clienteAsociado, double saldo, double descubiertoAutorizado, double saldoDolares) {
+        // Usamos el getter heredado de Cliente para obtener el número de cliente que pide tu superclase
+        super(numeroCuenta, clienteAsociado.getNumeroCliente(), saldo, descubiertoAutorizado);
         this.saldoDolares = saldoDolares;
     }
 
     public void depositarDolares(double monto) {
-        if (monto <= 0) return;
-        this.saldoDolares += monto;
+        if (monto > 0) {
+            this.saldoDolares += monto;
+        }
     }
 
     public void extraerDolares(double monto) {
         if (monto <= 0) return;
+        
         if (this.saldoDolares >= monto) {
             this.saldoDolares -= monto;
         } else {
-            System.out.println("Error: Saldo en dólares insuficiente.");
+            System.err.println("Saldo en dólares insuficiente.");
         }
     }
 
@@ -31,10 +36,10 @@ public class CuentaConvertibilidad extends CuentaCorriente {
         if (montoPesos <= 0 || tasaCambio <= 0) return;
         
         if (getSaldo() + getDescubiertoAutorizado() >= montoPesos) {
-            extraerEfectivo(montoPesos); // Reutiliza lógica y validación de extracción
+            extraerEfectivo(montoPesos); 
             this.saldoDolares += (montoPesos / tasaCambio); 
         } else {
-            System.out.println("Error: Saldo insuficiente para la conversión.");
+            System.err.println("Saldo en pesos insuficiente para la conversión.");
         }
     }
 
@@ -43,9 +48,9 @@ public class CuentaConvertibilidad extends CuentaCorriente {
 
         if (this.saldoDolares >= montoDolares) {
             this.saldoDolares -= montoDolares; 
-            depositarEfectivo(montoDolares * tasaCambio); // 🌟 Reutiliza la lógica heredada de depósito
+            depositarEfectivo(montoDolares * tasaCambio); 
         } else {
-            System.out.println("Error: Dólares insuficientes para la conversión.");
+            System.err.println("Dólares insuficientes para la conversión.");
         }
     }
 }

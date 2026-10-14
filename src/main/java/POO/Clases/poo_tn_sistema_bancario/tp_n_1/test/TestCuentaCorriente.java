@@ -8,7 +8,7 @@ public class TestCuentaCorriente {
         ClienteEmpresa empresa = new ClienteEmpresa(1, " El Gallo S.A.", "303456729");
         System.out.println("Cliente: " + empresa); 
 
-        // CORRECCIÓN: Agregamos el número de cliente asociado (empresa.getNumeroCliente())
+        // Agregamos el número de cliente asociado (empresa.getNumeroCliente())
         // Parámetros: numeroCuenta (2235), clienteAsociado (1), saldo inicial (20000.0), descubiertoAutorizado (10000.0)
         CuentaCorriente cuenta2 = new CuentaCorriente(2235, empresa.getNumeroCliente(), 20000.0, 10000.0);
         
