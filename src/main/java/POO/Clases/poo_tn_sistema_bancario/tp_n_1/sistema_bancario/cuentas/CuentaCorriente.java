@@ -8,9 +8,8 @@ import lombok.ToString;
 public class CuentaCorriente extends Cuenta {
     private double descubiertoAutorizado;
 
-    // 🔥 Ajustado: Se eliminó el parámetro "double saldo" de la firma
     public CuentaCorriente(int numeroCuenta, int clienteAsociado, double descubiertoAutorizado) {
-        super(numeroCuenta, clienteAsociado); //  Llama al constructor manual de Cuenta (saldo inicia en 0.0)
+        super(numeroCuenta, clienteAsociado);
         this.descubiertoAutorizado = descubiertoAutorizado;
     }
 
@@ -29,7 +28,6 @@ public class CuentaCorriente extends Cuenta {
             System.out.println("El monto a extraer debe ser mayor a cero.");
             return;
         }
-        // Excelente lógica para el límite descubierto 👍
         if (getSaldo() + descubiertoAutorizado >= monto) {
             actualizarSaldo(getSaldo() - monto);
         } else {

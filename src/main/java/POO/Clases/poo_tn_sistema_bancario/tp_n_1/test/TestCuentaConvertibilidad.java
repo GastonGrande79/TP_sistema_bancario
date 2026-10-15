@@ -29,7 +29,7 @@ public class TestCuentaConvertibilidad {
     
         cuenta1.convertirPesosADolares(5000, 1530);
         System.out.println("Saldo en dólares: " + cuenta1.getSaldoDolares());
-        System.out.println("Saldo remanente en pesos: " + cuenta1.getSaldo()); // Verificamos el impacto en pesos
+        System.out.println("Saldo remanente en pesos: " + cuenta1.getSaldo());
 
         System.out.println("\n--- Conversión: U$S 200 a Pesos (Cotización: 1450) ---");
         cuenta1.convertirDolaresAPesos(200, 1450);

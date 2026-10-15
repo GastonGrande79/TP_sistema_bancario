@@ -8,19 +8,16 @@ public class Cheque {
     private String bancoEmisor;
     private LocalDate fechaPago;
 
-    // El mismo constructor que hacía @AllArgsConstructor
     public Cheque(double monto, String bancoEmisor, LocalDate fechaPago) {
         this.monto = monto;
         this.bancoEmisor = bancoEmisor;
         this.fechaPago = fechaPago;
     }
 
-    // Los mismos getters que hacía @Getter (así no se rompe el resto del proyecto)
     public double getMonto() { return monto; }
     public String getBancoEmisor() { return bancoEmisor; }
     public LocalDate getFechaPago() { return fechaPago; }
 
-    // El mismo toString que hacía @ToString
     @Override
     public String toString() {
         return "Cheque(monto=" + monto + ", bancoEmisor=" + bancoEmisor + ", fechaPago=" + fechaPago + ")";

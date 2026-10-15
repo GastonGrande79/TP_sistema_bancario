@@ -21,12 +21,12 @@ public class TestCuentaCorriente {
         System.out.println("Saldo actual: " + cuenta2.getSaldo()); // Debería quedar en -5000.0
 
         System.out.println("\n--- Extraccion de $16000 (Supera el limite de descubierto) ---");
-        cuenta2.extraerEfectivo(16000); // Lanzará el mensaje de "Saldo insuficiente" porque -5000 + 10000 = 5000, menor a 16000
+        cuenta2.extraerEfectivo(16000); // Muestra el mensaje de "Saldo insuficiente" porque -5000 + 10000 = 5000, menor a 16000
         System.out.println("Saldo actual: " + cuenta2.getSaldo());
 
         System.out.println("\n--- Deposito de $16000 ---");
         cuenta2.depositarEfectivo(16000);
-        System.out.println("Saldo actual: " + cuenta2.getSaldo()); // Queda perfectamente balanceado en 11000.0
+        System.out.println("Saldo actual: " + cuenta2.getSaldo());
     }
 }
 

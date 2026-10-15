@@ -9,7 +9,6 @@ public class TestCajaAhorro {
         
         System.out.println("Cliente: " + cliente1.getNumeroCliente() + " - " + cliente1.getNombre() + " " + cliente1.getApellido() + " (DNI: " + cliente1.getDni() + ")");
                                  
-        // El saldo arranca automáticamente en 0.0 de forma interna y segura.
         CajaAhorro caja1 = new CajaAhorro(10, cliente1.getNumeroCliente(), 12.0);
         
         System.out.println("Saldo de apertura (Garantizado en cero): $" + caja1.getSaldo());

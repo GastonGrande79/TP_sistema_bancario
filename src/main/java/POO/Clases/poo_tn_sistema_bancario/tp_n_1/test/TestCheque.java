@@ -5,8 +5,6 @@ import poo.clases.poo_tn_sistema_bancario.tp_n_1.sistema_bancario.cuentas.Cheque
 
 public class TestCheque {
     public static void main(String[] args) {
-        // Se ingresan los datos directamente a través del constructor.
-        // Simulamos un cheque con fecha de pago diferida (15 de Octubre de 2026)
         Cheque miCheque = new Cheque(152500.75, "Banco Nacion", LocalDate.of(2026, 10, 15));
         
         System.out.println("Banco Emisor: " + miCheque.getBancoEmisor());

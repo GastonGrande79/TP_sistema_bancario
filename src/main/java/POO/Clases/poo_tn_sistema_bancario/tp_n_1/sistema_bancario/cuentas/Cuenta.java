@@ -10,7 +10,6 @@ public abstract class Cuenta {
     private int clienteAsociado;
     private double saldo;
 
-    // El saldo nace estrictamente en 0.0
     public Cuenta(int numeroCuenta, int clienteAsociado) {
         this.numeroCuenta = numeroCuenta;
         this.clienteAsociado = clienteAsociado;
