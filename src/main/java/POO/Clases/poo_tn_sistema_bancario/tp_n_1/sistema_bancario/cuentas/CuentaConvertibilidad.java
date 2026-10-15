@@ -9,21 +9,24 @@ import lombok.ToString;
 public class CuentaConvertibilidad extends CuentaCorriente {
     private double saldoDolares;
 
-    // Forzamos desde el parámetro que el cliente sea únicamente un ClienteEmpresa
-    public CuentaConvertibilidad(int numeroCuenta, ClienteEmpresa clienteAsociado, double saldo, double descubiertoAutorizado, double saldoDolares) {
-        // Usamos el getter heredado de Cliente para obtener el número de cliente que pide tu superclase
-        super(numeroCuenta, clienteAsociado.getNumeroCliente(), saldo, descubiertoAutorizado);
-        this.saldoDolares = saldoDolares;
+    public CuentaConvertibilidad(int numeroCuenta, ClienteEmpresa clienteAsociado, double descubiertoAutorizado) {
+        super(numeroCuenta, clienteAsociado.getNumeroCliente(), descubiertoAutorizado);
+        this.saldoDolares = 0.0; // Garantizamos que el saldo en dólares también inicie en cero
     }
 
     public void depositarDolares(double monto) {
         if (monto > 0) {
             this.saldoDolares += monto;
+        } else {
+            System.out.println("El monto a depositar debe ser mayor a cero.");
         }
     }
 
     public void extraerDolares(double monto) {
-        if (monto <= 0) return;
+        if (monto <= 0) {
+            System.out.println("El monto a extraer debe ser mayor a cero.");
+            return;
+        }
         
         if (this.saldoDolares >= monto) {
             this.saldoDolares -= monto;

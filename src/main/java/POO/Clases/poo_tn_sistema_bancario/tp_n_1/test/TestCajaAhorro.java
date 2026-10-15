@@ -9,11 +9,14 @@ public class TestCajaAhorro {
         
         System.out.println("Cliente: " + cliente1.getNumeroCliente() + " - " + cliente1.getNombre() + " " + cliente1.getApellido() + " (DNI: " + cliente1.getDni() + ")");
                                  
-        // Se agregaron los 4 parámetros requeridos por el constructor
-        // numeroCuenta (10), clienteAsociado (cliente1.getNumeroCliente()), saldo inicial (15000.0), tasaInteres (12.0)
-        CajaAhorro caja1 = new CajaAhorro(10, cliente1.getNumeroCliente(), 15000.0, 12.0);
+        // El saldo arranca automáticamente en 0.0 de forma interna y segura.
+        CajaAhorro caja1 = new CajaAhorro(10, cliente1.getNumeroCliente(), 12.0);
         
-        System.out.println("Saldo inicial: $" + caja1.getSaldo());
+        System.out.println("Saldo de apertura (Garantizado en cero): $" + caja1.getSaldo());
+
+        System.out.println("\n--- Carga Inicial de Fondos: $15000.0 ---");
+        caja1.depositarEfectivo(15000.0);
+        System.out.println("Saldo inicial operativo: $" + caja1.getSaldo());
 
         System.out.println("\n--- Deposito de $8000.0 ---");
         caja1.depositarEfectivo(8000);
@@ -24,7 +27,7 @@ public class TestCajaAhorro {
         System.out.println("Saldo actual: $" + caja1.getSaldo());
 
         System.out.println("\n--- Extraccion de $25000.0 ---");
-        caja1.extraerEfectivo(25000);
+        caja1.extraerEfectivo(25000); // Debería saltar el mensaje de "Saldo insuficiente"
         System.out.println("Saldo actual: $" + caja1.getSaldo());
 
         System.out.println("\n--- Cobro de Intereses ---");

@@ -8,8 +8,8 @@ import lombok.ToString;
 public class CajaAhorro extends Cuenta {
     private double tasaInteres;
 
-    public CajaAhorro(int numeroCuenta, int clienteAsociado, double saldo, double tasaInteres) {
-        super(numeroCuenta, clienteAsociado, saldo);
+    public CajaAhorro(int numeroCuenta, int clienteAsociado, double tasaInteres) {
+        super(numeroCuenta, clienteAsociado); // Llama al constructor de la madre (saldo = 0.0)
         this.tasaInteres = tasaInteres;
     }
 
@@ -38,3 +38,4 @@ public class CajaAhorro extends Cuenta {
         actualizarSaldo(getSaldo() + interes);
     }
 }
+
