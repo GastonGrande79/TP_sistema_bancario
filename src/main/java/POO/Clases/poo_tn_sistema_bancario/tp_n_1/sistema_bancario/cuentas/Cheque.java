@@ -2,7 +2,6 @@ package poo.clases.poo_tn_sistema_bancario.tp_n_1.sistema_bancario.cuentas;
 
 import java.time.LocalDate;
 
-// SACAMOS LOMBOK, PERO ESCRIBIMOS LO MISMO QUE HACÍA LOMBOK
 public class Cheque {
     private double monto;
     private String bancoEmisor;
