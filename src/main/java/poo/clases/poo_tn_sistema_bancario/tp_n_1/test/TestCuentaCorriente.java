@@ -8,7 +8,7 @@ public class TestCuentaCorriente {
         ClienteEmpresa empresa = new ClienteEmpresa(1, " El Gallo S.A.", "303456729");
         System.out.println("Cliente: " + empresa); 
 
-        CuentaCorriente cuenta2 = new CuentaCorriente(2235, empresa.getNumeroCliente(), 10000.0);
+        CuentaCorriente cuenta2 = new CuentaCorriente(2235, empresa, 10000.0);
         
         System.out.println("Saldo de apertura (Garantizado en cero): " + cuenta2.getSaldo());
 

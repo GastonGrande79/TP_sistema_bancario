@@ -8,8 +8,6 @@ public class TestCuentaConvertibilidad {
         
         ClienteEmpresa empresa = new ClienteEmpresa(1, "El Gallo S.A.", "303456729");
 
-        
-        // Ambos saldos (pesos y dólares) arrancan automáticamente en 0.0 de forma segura.
         CuentaConvertibilidad cuenta1 = new CuentaConvertibilidad(2235, empresa, 5000.0);
 
         

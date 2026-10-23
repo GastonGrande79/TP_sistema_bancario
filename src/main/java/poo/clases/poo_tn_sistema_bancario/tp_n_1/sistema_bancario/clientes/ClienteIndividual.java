@@ -16,5 +16,9 @@ public class ClienteIndividual extends Cliente {
         this.apellido = apellido;
         this.dni = dni;
     }
+
+    
+
+    
 }
 

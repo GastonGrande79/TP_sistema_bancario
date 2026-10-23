@@ -2,13 +2,14 @@ package poo.clases.poo_tn_sistema_bancario.tp_n_1.sistema_bancario.cuentas;
 
 import lombok.Getter;
 import lombok.ToString;
+import poo.clases.poo_tn_sistema_bancario.tp_n_1.sistema_bancario.clientes.Cliente;
 
 @Getter 
 @ToString(callSuper = true)
 public class CajaAhorro extends Cuenta {
     private double tasaInteres;
 
-    public CajaAhorro(int numeroCuenta, int clienteAsociado, double tasaInteres) {
+    public CajaAhorro(int numeroCuenta, Cliente clienteAsociado, double tasaInteres) {
         super(numeroCuenta, clienteAsociado); 
         this.tasaInteres = tasaInteres;
     }
